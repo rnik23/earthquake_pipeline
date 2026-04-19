@@ -28,9 +28,9 @@ class Config:
 
     # --- Magnitude buckets ---
     magnitude_buckets: list[tuple[float, float, str]] = field(default_factory=lambda: [
-        (0.0,  2.0, "0-2"),
-        (2.0,  4.0, "2-4"),
-        (4.0,  6.0, "4-6"),
+        (float("-inf"), 2.0, "<2"),
+        (2.0,           4.0, "2-4"),
+        (4.0,           6.0, "4-6"),
         (6.0,  float("inf"), "6+"),
     ])
 

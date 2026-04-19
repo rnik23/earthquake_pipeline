@@ -69,7 +69,7 @@ class DailyAggregate(BaseModel):
     """Daily count of earthquakes per magnitude bucket."""
 
     date: str                       # ISO format: YYYY-MM-DD
-    bucket: str                     # "0-2", "2-4", "4-6", "6+"
+    bucket: str                     # "<2", "2-4", "4-6", "6+"
     count: int = Field(ge=0)
     updated_at: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc)
