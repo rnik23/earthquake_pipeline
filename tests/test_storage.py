@@ -196,7 +196,7 @@ class TestDailyAggregates:
         row = conn.execute(
             "SELECT date, bucket, count FROM daily_aggregates"
         ).fetchone()
-        assert row == ("2026-04-17", "4-6", 3)
+        assert tuple(row) == ("2026-04-17", "4-6", 3)
 
     def test_upsert_overwrites_existing_aggregate(self, storage, sample_aggregate):
         """Re-running pipeline for same window must overwrite, not duplicate."""
@@ -289,5 +289,5 @@ class TestPipelineRuns:
             "SELECT id, status FROM pipeline_runs ORDER BY id"
         ).fetchall()
         assert len(rows) == 2
-        assert rows[0] == (id1, "success")
-        assert rows[1] == (id2, "failed")
+        assert tuple(rows[0]) == (id1, "success")
+        assert tuple(rows[1]) == (id2, "failed")
