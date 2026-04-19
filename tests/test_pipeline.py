@@ -161,7 +161,7 @@ class TestAuditTrail:
         mock_storage.fail_run.assert_called_once()
         call_args = mock_storage.fail_run.call_args
         assert call_args.args[0] == 7
-        assert "USGS unreachable" in call_args.args[1]
+        assert "USGS unreachable" in call_args.kwargs["error"]
 
     def test_fail_run_called_even_if_transform_fails(self, config):
         """Failure anywhere after start_run must still record the run as failed."""

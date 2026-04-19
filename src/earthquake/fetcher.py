@@ -69,9 +69,11 @@ class USGSFetcher:
         all_events: list[EarthquakeEvent] = []
         offset = 1
         page = 0
+        self.pages_fetched = 0
 
         while True:
             page += 1
+            self.pages_fetched = page
             events = self.fetch_page(offset=offset)
 
             # Deduplicate across pages
