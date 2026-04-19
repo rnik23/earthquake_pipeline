@@ -22,6 +22,8 @@ This project is built incrementally. Each feature maps to a numbered commit seri
 | Entrypoint| 8 | run.py CLI entrypoint + final README polish      | ✅ Complete |
 
 ---
+## System Design
+![Pipeline Architecture](docs/system_design.svg)
 
 ## Project Structure
 
