@@ -24,6 +24,8 @@ This project is built incrementally. Each feature maps to a numbered commit seri
 ---
 
 ## Project Structure
+
+```
 earthquake_pipeline/
 ├── src/
 │   └── earthquake/
@@ -41,6 +43,7 @@ earthquake_pipeline/
 ├── run.py                  # CLI entrypoint
 ├── pyproject.toml          # Dependencies + build config
 └── pipeline.log            # Runtime log (git-ignored)
+```
 
 ---
 
