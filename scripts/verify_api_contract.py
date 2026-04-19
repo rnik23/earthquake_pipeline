@@ -1,4 +1,3 @@
-python3 - << 'EOF'
 """
 Ad-hoc API contract validator.
 Hits the live USGS API, parses real events through our models,

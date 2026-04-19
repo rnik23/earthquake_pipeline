@@ -136,3 +136,39 @@ Metrics I'd track in production:
 - `pipeline.events_inserted` / `pipeline.duplicates_skipped` — data freshness signal
 - `pipeline.pages_fetched` — pagination health
 - Error rate + last successful run timestamp — for alerting SLAs
+
+## Debugging Runbook
+
+### Pipeline failed at 3am — first steps:
+
+**1. Check the audit trail:**
+```bash
+sqlite3 earthquake.db "SELECT * FROM pipeline_runs ORDER BY id DESC LIMIT 5"
+```
+
+**2. Check the log:**
+```bash
+tail -100 pipeline.log | grep -E "ERROR|WARNING"
+```
+
+**3. Suspect an API schema change? Run the contract validator:**
+```bash
+python scripts/verify_api_contract.py
+```
+
+This script hits the live USGS API, parses real events through our Pydantic
+models, and compares the response shape against our fixture expectations.
+If USGS has changed a field name, added a required field, or altered the
+coordinate structure — this will catch it immediately and tell you exactly
+which field diverged.
+
+Common API drift scenarios it catches:
+- `mag` renamed or nested differently → Pydantic parse fails
+- `time` format changed from epoch ms → timestamp conversion breaks
+- `coordinates` array length changed → lat/lon/depth unpacking silently wrong
+- New required field added → events parsed with None where value expected
+
+**4. If contract validator passes but pipeline still fails:**
+The issue is likely infrastructure — DB permissions, disk space, network
+timeouts. Check `pipeline.log` for the specific page number where the
+failure occurred.
