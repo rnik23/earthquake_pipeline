@@ -1,0 +1,18 @@
+annotated-types==0.7.0
+certifi==2026.2.25
+charset-normalizer==3.4.7
+-e git+https://github.com/rnik23/earthquake_pipeline.git@08c41143e7af154235df545e68972829b96ba1e2#egg=earthquake_pipeline
+idna==3.11
+iniconfig==2.3.0
+packaging==26.1
+pluggy==1.6.0
+pydantic==2.13.2
+pydantic_core==2.46.2
+Pygments==2.20.0
+pytest==9.0.3
+pytest-mock==3.15.1
+requests==2.33.1
+tenacity==9.1.4
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+urllib3==2.6.3
