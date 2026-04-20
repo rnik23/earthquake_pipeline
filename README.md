@@ -58,7 +58,7 @@ earthquake_pipeline/
 ### Install
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/rnik23/earthquake_pipeline.git
 cd earthquake_pipeline
 python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
