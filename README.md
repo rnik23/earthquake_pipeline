@@ -16,9 +16,9 @@ This project is built incrementally. Each feature maps to a numbered commit seri
 | Fetcher  | 2  | USGS API client with pagination + retry logic    | ✅ Complete |
 | Storage  | 3  | SQLite schema, upserts for events + aggregates   | ✅ Complete |
 | Transform| 4  | Magnitude bucketing + daily aggregation logic    | ✅ Complete |
-| Pipeline | 5  | Orchestrator wiring fetch → transform → store    | 🔲 Planned  |
-| Logging  | 6  | Structured logging, file + console handlers      | 🔲 Planned  |
-| Tests    | 7  | Full offline test suite (mocked API + DB)        | 🔲 Planned  |
+| Pipeline | 5  | Orchestrator wiring fetch → transform → store    | ✅ Complete |
+| Logging  | 6  | Structured logging, file + console handlers      | ✅ Complete |
+| Tests    | 7  | Full offline test suite (mocked API + DB)        | ✅ Complete |
 | Entrypoint| 8 | run.py CLI entrypoint + final README polish      | ✅ Complete |
 
 ---
